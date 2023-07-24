@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Expense from './Components/Expense'
-import NewExpensesForm from './Components/NewExpensesForm';
+import NewExpenses from './Components/NewExpenses';
 const App =()=> {
 const [expenses,setExpenses] = useState([
     {
@@ -23,13 +23,13 @@ const [expenses,setExpenses] = useState([
       date: new Date(2021, 5, 12),
     },
   ]);
-const onAddingExpense=(FormData)=>{
-setExpenses(expenses.concat(FormData))
+const onAddingExpense=(expense)=>{
+setExpenses(prevExpenses=> { return [expense,...prevExpenses]})
   
 }
   return (
     <div>
-     <NewExpensesForm onAddingExpense={onAddingExpense}/>
+     <NewExpenses onAddingExpense={onAddingExpense}/>
     <Expense expenses={expenses}/>
     </div>
   );

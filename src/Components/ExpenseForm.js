@@ -1,8 +1,6 @@
 import React,{ useState } from 'react'
-import './styles/NewExpense.css'
 import './styles/ExpenseForm.css'
-function NewExpensesForm ({onAddingExpense}){
-   
+function ExpenseForm({onAddingExpense,onCancel}){
     const [title,setTitle]=useState('')
     const [amount,setAmount]=useState('')
     const [date,setDate]=useState('')
@@ -15,13 +13,14 @@ function NewExpensesForm ({onAddingExpense}){
     const datePickerHandler=(event)=>{
         setDate(event.target.value)
     }
-    const AddExpenseHandler=(event)=>{
+    const saveExpenseDataHandler=(event)=>{
        
         event.preventDefault()
         const FormData={
             title:title,
             amount:amount,
-            date: new Date(date)
+            date: new Date(date),
+            id:`e${Math.random()}`
         }
         onAddingExpense(FormData)
 
@@ -29,8 +28,7 @@ setTitle('')
 setAmount('')
 setDate('')
     }
-return <div className='new-expense'>
-    <form onSubmit={AddExpenseHandler}>
+return <form onSubmit={saveExpenseDataHandler}>
         <div className='new-expense__controls'>
             <div className='new-expense__control'>
                 <label>Title</label>
@@ -46,10 +44,10 @@ return <div className='new-expense'>
             </div>
         </div>
         <div className='new-expense__actions'>
+            <button onClick={()=>onCancel(false)}>Cancel</button>
             <button type="submit">Add expense</button>
         </div>
 
     </form>
-</div>
 }
-export default NewExpensesForm
+export default ExpenseForm
