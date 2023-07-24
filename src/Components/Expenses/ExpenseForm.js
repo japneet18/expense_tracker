@@ -1,5 +1,5 @@
 import React,{ useState } from 'react'
-import './styles/ExpenseForm.css'
+import '../styles/ExpenseForm.css'
 function ExpenseForm({onAddingExpense,onCancel}){
     const [title,setTitle]=useState('')
     const [amount,setAmount]=useState('')
@@ -18,7 +18,7 @@ function ExpenseForm({onAddingExpense,onCancel}){
         event.preventDefault()
         const FormData={
             title:title,
-            amount:amount,
+            amount:+amount,
             date: new Date(date),
             id:`e${Math.random()}`
         }

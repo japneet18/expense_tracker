@@ -1,4 +1,4 @@
-import './styles/ExpenseDate.css'
+import '../styles/ExpenseDate.css'
 const ExpenseDate = ({date}) =>{
  
   return (

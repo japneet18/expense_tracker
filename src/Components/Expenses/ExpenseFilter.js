@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles/ExpenseFilter.css';
+import '../styles/ExpenseFilter.css';
 
 const ExpensesFilter = ({filterChangesHandler,selected}) => {
  

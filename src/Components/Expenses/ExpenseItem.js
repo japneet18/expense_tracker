@@ -1,7 +1,7 @@
 import React from 'react'
 import ExpenseDate from './ExpenseDate'
-import Card from './Card'
-import './styles/ExpenseItem.css'
+import Card from '../Card'
+import '../styles/ExpenseItem.css'
 const ExpenseItem = ({expense}) => {
   
   return (
